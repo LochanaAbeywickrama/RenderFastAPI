@@ -34,6 +34,11 @@ model = joblib.load('phishing_model.pkl')
 # Initialize FastAPI app
 app = FastAPI()
 
+# Root endpoint
+@app.get("/")
+def read_root():
+    return {"message": "Welcome to the FastAPI Phishing Detection Service!"}
+
 # Define the input data structure for a single URL
 class URLData(BaseModel):
     urllength: int
